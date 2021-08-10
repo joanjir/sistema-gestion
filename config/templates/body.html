@@ -1,52 +1,44 @@
-{% extends 'home.html' %}
-{% block body %}
+{% extends 'home.html' %} {% block body %}
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        <!-- Header -->
-        {% include 'header.html' %}
-        <!-- Sidebar-->
-        {% include 'sidebar.html'%}
-        <div class="content-wrapper">
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="mb-2 row">
-                        <div class="col-sm-6">
-                            <h1>Fixed Layout</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                                <li class="breadcrumb-item active">Fixed Layout</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    {% block content %}
-
-                    {% endblock %}
-
-                </div>
-            </section>
+  <div class="wrapper">
+    <!-- Header -->
+    {% include 'header.html' %}
+    <!-- Sidebar-->
+    {% include 'sidebar.html'%}
+    <div class="content-wrapper">
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="mb-2 row">
+            <div class="col-sm-6">
+              <h1>Fixed Layout</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Layout</a></li>
+                <li class="breadcrumb-item active">Fixed Layout</li>
+              </ol>
+            </div>
+          </div>
         </div>
-        <!-- Footer -->
-        {% include 'footer.html'%}
+      </section>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">{% block content %} {% endblock %}</div>
+      </section>
     </div>
-    <!-- Block javascript -->
-    {% block javascript %}
+    <!-- Footer -->
+    {% include 'footer.html'%}
 
-    {% endblock %}
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- Block javascript -->
+  {% block javascript %} {% endblock %}
 </body>
 {% endblock %}
