@@ -19,7 +19,8 @@
                 {{ title }}
             </h3>
         </div>
-        <div class="card-body">
+
+        <div class="card-body row">
             {% csrf_token %}
             <input type="hidden" name="action" value="{{ action }}">
             {% if form.errors %}
@@ -35,12 +36,15 @@
                 </ul>
             </div>
             {% endif %}
-            {% for field in form.visible_fields %}
-            <div class="form-group">
-                <label for="email">{{ field.label }}:</label>
-                {{ field|add_class:'form-control'|attr:'autocomplete:off' }}
+            <div class="row">
+                {% for field in form.visible_fields %}
+                <div class="form-group col-6">
+                    {{ field|add_class:'form-control'|attr:'autocomplete:off' }}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+
+
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary btn-flat">

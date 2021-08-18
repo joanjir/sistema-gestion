@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import model_to_dict
 
 # Create your models here.
 
@@ -16,7 +17,7 @@ class Evaluacion(models.Model):
         ('5to', 'Quinto'),
     )
     Anno_Academic = models.CharField(
-        max_length=10, choices=Anno_Academics, verbose_name='Año Academico', unique=True)
+        max_length=10, choices=Anno_Academics, verbose_name='Año Academico')
     MILITANCIA = (
         ('No', 'no'),
         ('Si', 'si'),
@@ -24,7 +25,7 @@ class Evaluacion(models.Model):
     emilitancia = models.CharField(
         max_length=2, choices=MILITANCIA, verbose_name='Militancia')
     eautoevaluacion = models.TextField(
-        verbose_name='Autoevaluación', unique=True)
+        verbose_name='Autoevaluación')
     EVALUACIONES = (
         ('B', 'Bien'),
         ('R', 'Regular'),
@@ -49,7 +50,7 @@ class EventEstudiant(models.Model):
     evtipo = models.CharField(
         max_length=50, verbose_name='Tipo del Evento Estudiantil')
     evcantEstu = models.PositiveIntegerField(
-        verbose_name='Cantidad del Estudiantes a Participar')
+        verbose_name='Cantidad del Estudiantes a Participar',     null=True)
     efecha = models.DateTimeField(
         null=True, verbose_name='Fecha del Evento Estudiantil')
     evlugar = models.CharField(
@@ -66,6 +67,10 @@ class ActaReun(models.Model):
         null=True, verbose_name='Fecha de Acta de Reunión')
     acasistencia = models.PositiveIntegerField(verbose_name='Asistecia')
     acresumen = models.TextField(verbose_name='Resumen')
+
+    def toJSON(self):
+        item = model_to_dict(self)
+        return item
 
     class Meta():
         verbose_name = 'Acta de Reunion'

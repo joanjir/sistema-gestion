@@ -1,0 +1,30 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block head_list %}
+<script src="{% static 'evaluaciones/js/list.js' %}"></script>
+{% endblock %}
+
+{% block columns %}
+<tr>
+    <th scope="col" style="width: 2%;">No</th>
+    <th scope="col" style="width: 10%;">Nombres</th>
+    <th scope="col" style="width: 30%;">Apellidos</th>
+    <th scope="col" style="width: 3%;">Edad</th>
+    <th scope="col" style="width: 4%;">Grupo</th>
+    <th scope="col" style="width: 3%;">Año Academico</th>
+    <th scope="col" style="width:5%;">Militancia</th>
+    <th scope="col" style="width: 5%;">Autoevaluación</th>
+    <th scope="col" style="width: 5%;">Evaluación</th>
+    <th scope="col" style="width: 5%;">Opciones</th>
+
+
+</tr>
+{% endblock %}
+
+{% block rows %}
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
