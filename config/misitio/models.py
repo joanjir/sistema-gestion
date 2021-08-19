@@ -34,6 +34,9 @@ class Evaluacion(models.Model):
     evaluacion = models.CharField(
         max_length=1, choices=EVALUACIONES, verbose_name='Evaluación')
 
+    def __str__(self):
+        return self.name
+
     def toJSON(self):
         item = model_to_dict(self)
         return item
@@ -41,7 +44,7 @@ class Evaluacion(models.Model):
     class Meta():
         verbose_name = 'Evaluacion Integral'
         verbose_name_plural = 'Evaluaciones Integrales'
-        ordering = ['id']
+        ordering = ['egrupo']
 
 
 class EventEstudiant(models.Model):
@@ -55,6 +58,8 @@ class EventEstudiant(models.Model):
         null=True, verbose_name='Fecha del Evento Estudiantil')
     evlugar = models.CharField(
         max_length=100, verbose_name='Luga del Evento Estudiantil')
+    def __str__(self):
+        return self.name
 
     class Meta():
         verbose_name = 'Evento Estudiantil'
