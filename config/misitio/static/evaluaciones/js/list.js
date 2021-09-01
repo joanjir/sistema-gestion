@@ -13,8 +13,8 @@ $(function () {
             dataSrc: ""
         },
         columns: [{
-                "data": "id"
-            },
+            "data": "id"
+        },
             {
                 "data": "ename"
             },
@@ -52,7 +52,7 @@ $(function () {
                 buttons += '<a href="/misitio/evaluaciones/eliminar/' + row.id + '/" type="button" class="btn btn-danger btn-xs btn-flat"><i class="fas fa-trash-alt"></i></a>';
                 return buttons;
             }
-        }, ],
+        },],
         initComplete: function (settings, json) {
 
         }

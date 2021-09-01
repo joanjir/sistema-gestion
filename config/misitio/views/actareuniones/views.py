@@ -33,6 +33,8 @@ class ActaReunListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Listado de Actas de Reuniones'
+
+        context['titlehead'] = 'Listado de Actas de Reuniones | Sistema Gestión de la FEU Fac 2'
         context['create_url'] = reverse_lazy('misitio:actareu_crear')
 
         return context

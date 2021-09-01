@@ -1,6 +1,6 @@
-from msilib import RadioButtonGroup
 from datetime import datetime
-from django.forms import *
+from django import forms
+from django.forms import ModelForm
 
 from misitio.models import Evaluacion, ActaReun
 
@@ -10,55 +10,57 @@ class EvaluacionForm(ModelForm):
         super(EvaluacionForm, self).__init__(*args, **kwargs)
         self.fields['ename'].widget.attrs['autofocus'] = True
 
-
     class Meta:
         model = Evaluacion
         fields = 'ename', 'eapellido', 'eedad', 'egrupo', 'Anno_Academic', 'emilitancia', 'eautoevaluacion', 'evaluacion'
 
         widgets = {
-            'ename': TextInput(
+            'ename': forms.TextInput(
                 attrs={
                     'placeholder': 'Ingrese los nombres',
 
                 }
             ),
 
-            'eapellido': TextInput(
+            'eapellido': forms.TextInput(
                 attrs={
                     'placeholder': 'Ingrese los apellidos',
 
                 }),
 
-            'eedad': NumberInput(
+            'eedad': forms.NumberInput(
                 attrs={
                     'placeholder': 'Ingrese la edad',
 
                 }),
-            'egrupo': TextInput(
+            'egrupo': forms.TextInput(
                 attrs={
                     'placeholder': 'Ingrese el grupo',
 
                 }),
-            'Anno_Academic': Select(
+            'Anno_Academic': forms.Select(
                 attrs={
                     'placeholder': 'Ingrese el año academico',
 
                 }),
-            'emilitancia': Select(
+            'emilitancia': forms.Select(
                 attrs={
                     'placeholder': 'Ingrese el año academico',
                 }),
-            'eautoevaluacion': Textarea(
+            'eautoevaluacion': forms.Textarea(
                 attrs={
                     'placeholder': 'Ingrese autoevaluación',
 
                 }),
-            'evaluacion': Select(
+            'evaluacion': forms.Select(
                 attrs={
 
                 }),
 
+
+
         }
+
 
     def save(self, commit=True):
         data = {}
@@ -82,26 +84,26 @@ class ActaReunForm(ModelForm):
         model = ActaReun
         fields = '__all__'
         widgets = {
-            'acgrupo': TextInput(
+            'acgrupo': forms.TextInput(
                 attrs={
                     'placeholder': 'Ingrese el grupo',
                 }
             ),
-            'acfecha': DateInput(format='%Y-%m-%d',
-                                 attrs={
-                                     'value': datetime.now().strftime('%Y-%m-%d'),
-                                 }
-                                 ),
-            'acasistencia': NumberInput(
+            'acfecha': forms.DateTimeInput(format='%Y-%m-%d',
+                                       attrs={
+                                           'value': datetime.now().strftime('%Y-%m-%d'),
+                                       }
+                                       ),
+
+            'acasistencia': forms.NumberInput(
                 attrs={
                     'placeholder': 'Ingrese la  asistencia',
                 }
             ),
-            'acresumen': Textarea(
+            'acresumen': forms.Textarea(
                 attrs={
                     'placeholder': 'Ingrese un resumen de la reunión',
-                    'rows': 3,
-                    'cols': 3
+
                 }
             ),
         }

@@ -39,6 +39,7 @@
             <div class="row">
                 {% for field in form.visible_fields %}
                 <div class="form-group col-6">
+                     <label> {{ field.label }}:</label>
                     {{ field|add_class:'form-control'|attr:'autocomplete:off' }}
                 </div>
                 {% endfor %}

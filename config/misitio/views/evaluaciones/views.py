@@ -33,7 +33,9 @@ class EvaluacionListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Listado de Evaluaciones'
+        context['title'] = 'Listado de Evaluaciones integrales'
+        context['titlehead'] = 'Listado de Evaluaciones integrales | Sistema Gestión de la FEU Fac 2'
+
         context['create_url'] = reverse_lazy('misitio:evaluaciones_crear')
 
         return context
@@ -65,9 +67,9 @@ class EvaluacionCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Crear Evaluación Integral'
-        context['entity1'] = 'Evaluaciones Integrales'
-        context['entity2'] = 'Evaluaciones Integrales'
-        context['list_url'] = reverse_lazy('misitio:evaluaciones_listar')
+        context['entity'] = 'Listado de Evaluaciones Integrales'
+        context['list_url'] = self.success_url
+        context['action'] = 'add'
         return context
 
 
