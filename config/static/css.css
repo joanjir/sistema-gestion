@@ -1,0 +1,10 @@
+body {
+  background-image: url("/static/img/imagenprincipal.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.login{
+  margin: 45px 150px;
+}

@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import FormView
 
 from core.misitio.models import Evaluacion
 
@@ -101,7 +102,7 @@ class EvaluacionUpdateView(UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Editar Evaluacion Integral'
         context['entity'] = 'Evaluacion Integral'
-        context['list_url'] = reverse_lazy('core.misitio:evaluaciones_listar')
+        context['list'] = reverse_lazy('core.misitio:evaluaciones_listar')
         context['action'] = 'edit'
         return context
 class EvaluacionDeleteView(DeleteView):
@@ -127,3 +128,26 @@ class EvaluacionDeleteView(DeleteView):
         context['entity'] = 'Evalución Integral'
         context['list_url'] = reverse_lazy('core.misitio:evaluaciones_listar')
         return context
+    
+class EvaluacionFormView(FormView):
+    form_class = EvaluacionForm
+    template_name = 'evaluaciones/crearevaluacion.html'
+    success_url = reverse_lazy('core.misitio:evaluaciones_listar')
+
+    def form_valid(self, form):
+        print(form.is_valid())
+        print(form)
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        print(form.is_valid())
+        print(form.errors)
+        return super().form_invalid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Form | Categoria'
+        context['entity'] = 'Categorias'
+        context['list_url'] = reverse_lazy('core.misitio:evaluaciones_listar')
+        context['action'] = 'add'
+        return context    

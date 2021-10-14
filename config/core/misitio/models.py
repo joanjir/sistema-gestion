@@ -42,9 +42,6 @@ class Evaluacion(models.Model):
 
     def toJSON(self):
         item = model_to_dict(self)
-        item['evaluacion'] = {'id': self.evaluacion, 'name': self.get_evaluacion_display()}
-        item['Anno_Academic'] = {'id': self.Anno_Academic, 'name': self.get_Anno_Academic_display()}
-
         return item
 
     class Meta:

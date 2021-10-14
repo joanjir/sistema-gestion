@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Apps
     'core.misitio',
+    'core.login',
+    
     # Libs
     'widget_tweaks',
 ]
@@ -122,6 +124,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_REDIRECT_URL = '/evaluaciones/listar/'
+
 
 LOGIN_URL = '/login/'
 

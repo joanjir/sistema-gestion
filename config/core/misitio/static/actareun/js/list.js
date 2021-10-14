@@ -1,7 +1,7 @@
 $(function () {
     $('#data').DataTable({
-        responsive: true,
-        autoWidth: false,
+        scrollX: true,
+        autoWidth: true,
         destroy: true,
         deferRender: true,
         ajax: {
@@ -13,7 +13,6 @@ $(function () {
             dataSrc: ""
         },
         columns: [
-            {"data": "id"},
             {"data": "acgrupo"},
             {"data": "acfecha"},
             {"data": "acasistencia"},

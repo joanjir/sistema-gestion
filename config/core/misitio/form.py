@@ -38,24 +38,14 @@ class EvaluacionForm(ModelForm):
                     'placeholder': 'Ingrese el grupo',
 
                 }),
-            'Anno_Academic': forms.Select(
-                attrs={
-                    'placeholder': 'Ingrese el año academico',
-
-                }),
-            'emilitancia': forms.Select(
-                attrs={
-                    
-                }),
+            'Anno_Academic': forms.Select(),
+            'emilitancia': forms.Select(),
             'eautoevaluacion': forms.Textarea(
                 attrs={
                     'placeholder': 'Ingrese autoevaluación',
 
                 }),
-            'evaluacion': forms.Select(
-                attrs={
-
-                }),
+            'evaluacion': forms.Select(),
 
 
 
