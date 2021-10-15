@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import FormView
 
@@ -15,6 +17,7 @@ class EvaluacionListView(ListView):
     template_name = 'evaluaciones/listarevaluaciones.html'
 
     @method_decorator(csrf_exempt)
+    @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
@@ -48,6 +51,7 @@ class EvaluacionCreateView(CreateView):
     template_name = 'evaluaciones/crearevaluacion.html'
     success_url = reverse_lazy('core.misitio:evaluaciones_listar')
     url_redirect = success_url
+    @method_decorator(login_required)
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)

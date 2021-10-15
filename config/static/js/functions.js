@@ -16,13 +16,12 @@ function message_error(obj) {
     });
 }
 
-
-function alert_action(title, content, callback, cancel) {
+function submit_with_ajax(url, title, content, parameters, callback) {
     $.confirm({
         theme: 'material',
         title: title,
         icon: 'fa fa-info',
-        content: content,
+        content: '¿Estas  segurio de guardar este registro? ',
         columnClass: 'small',
         typeAnimated: true,
         cancelButtonClass: 'btn-primary',
@@ -33,14 +32,32 @@ function alert_action(title, content, callback, cancel) {
                 text: "Si",
                 btnClass: 'btn-primary',
                 action: function () {
-                    callback();
+                    $.ajax({
+                        url: url, //window.location.pathname
+                        type: 'POST',
+                        data: parameters,
+                        dataType: 'json',
+                        processData: false,
+                        contentType: false,
+                    }).done(function (data) {
+                        console.log(data);
+                        if (!data.hasOwnProperty('error')) {
+                            callback();
+                            return false;
+                        }
+                        message_error(data.error);
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert(textStatus + ': ' + errorThrown);
+                    }).always(function (data) {
+
+                    });
                 }
             },
             danger: {
                 text: "No",
                 btnClass: 'btn-red',
                 action: function () {
-                    cancel();
+
                 }
             },
         }

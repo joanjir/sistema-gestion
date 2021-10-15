@@ -41,11 +41,11 @@
     <div style="margin: 100px 150px; opacity: 0.8;
     -moz-opacity: 0.8;
     filter: alpha(opacity=80);
-    -khtml-opacity: 0.8;">
+    -khtml-opacity: 0.8; ">
         <div class="login-box">
             <!-- /.login-logo -->
-            <div class="card">
-                <div class="card-body login-card-body">
+            <div class="card" >
+                <div class="card-body login-card-body" style="margin-bottom: 6.5em;" >
                 <p class="login-box-msg">Sign in to start your session</p>
                 <form action="." method="post">
                     <input type="hidden" name="next" value="{{ next }}">
@@ -66,6 +66,7 @@
                         </div>
                     </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary btn-block">
@@ -75,6 +76,7 @@
                     </div>
                 </form>
             </div>
+                <br >
         </div>
         <script type="application/javascript">
             {% if form.errors %}

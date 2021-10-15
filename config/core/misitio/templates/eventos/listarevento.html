@@ -1,0 +1,64 @@
+{% extends 'body.html' %}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-search"></i>
+            {{ title }}
+        </h3>
+    </div>
+    <br>
+        
+        <div class="mt-5 row proyects"> 
+            {% for i in object_list %}          
+            <div class="mb-3 col-lg-4 col-md-6">
+                <div class="card"style="margin: 0.6em 0.8em;">
+                    <div style="margin: 0.6em 0.8em;">                
+                        <img class="img-fluid img-rounded" src="/media/{{i.eimagen}}" alt="Card image cap" style="width: 330px; height: 200px; ">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="text-center card-text" style="text-transform:uppercase;">
+                            <b>{{i.evnombre}}</b>
+                        </h5>
+
+                            <h3 class="text-center card-text " style="text-transform:uppercase ;font-size:14px;">
+                                <span class="text-center">{{i.evtipo}}</span>
+                            </h3>
+                            <hr>
+                        <small class="text-secondary"><b>Lugar del evento:</b> {{i.evlugar}}</small>
+                        <br>
+                        <small class="text-secondary"><b>Fecha del evento:</b> {{i.efecha}}</small>
+                    </div>
+                    <div class="card-footer">
+                        <a href="
+
+
+
+
+
+
+                                /publication/c6737659-6c1a-47b9-a47d-8e92db048912/" class="btn btn-danger btn-block">
+                            <i class="fas fa-info-circle"></i> Mas información
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} 
+
+        </div>
+
+
+
+    <div class="card-footer">
+            {% block buttons_list %}
+                <a href="{{ create_url }}" class="rounded btn btn-primary btn-flat btnTest">
+                    <i class="fas fa-plus"></i> Nuevo registro
+                </a>
+                
+            {% endblock %}
+        </div>
+        {% endblock content %} 
+        
+        
+

@@ -50,16 +50,12 @@ class Evaluacion(models.Model):
 
 
 class EventEstudiant(models.Model):
-    evnombre = models.CharField(
-        max_length=150, verbose_name='Nombre del Evento Estudiantil')
-    evtipo = models.CharField(
-        max_length=50, verbose_name='Tipo del Evento Estudiantil')
-    evcantEstu = models.PositiveIntegerField(
-        verbose_name='Cantidad del Estudiantes a Participar', null=True)
-    efecha = models.DateField(default=datetime.now,
-                              null=True, verbose_name='Fecha del Evento Estudiantil')
-    evlugar = models.CharField(
-        max_length=100, verbose_name='Luga del Evento Estudiantil')
+    evnombre = models.CharField(max_length=150, verbose_name='Nombre del Evento Estudiantil')
+    evtipo = models.CharField(max_length=50, verbose_name='Tipo del Evento Estudiantil')
+    eimagen = models.ImageField(upload_to= 'evento/', null=True, blank=True)
+    evcantEstu = models.PositiveIntegerField(verbose_name='Cantidad del Estudiantes a Participar', null=True, blank=True)
+    efecha = models.DateField(default=datetime.now, null=True, verbose_name='Fecha del Evento Estudiantil')
+    evlugar = models.CharField(max_length=100, verbose_name='Lugar del Evento Estudiantil')
 
     def toJSON(self):
         item = model_to_dict(self)

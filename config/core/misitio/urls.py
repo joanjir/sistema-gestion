@@ -1,4 +1,5 @@
 from django.urls import path
+from core.misitio.views.eventos.views import EventoListView
 from core.misitio.views.actareuniones.views import ActaReunListView, ActaReunCreateView
 from core.misitio.views.evaluaciones.views import *
 
@@ -14,5 +15,10 @@ urlpatterns = [
     # actareun
     path('actareun/listar/', ActaReunListView.as_view(), name='actareu_listar'),
     path('actareun/crear/', ActaReunCreateView.as_view(), name='actareu_crear'),
+    
+    
+    #eventosestu
+    path('eventos/listar/', EventoListView.as_view(), name='eventos_listar'),
+    
 
 ]

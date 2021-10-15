@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     # Apps
     'core.misitio',
     'core.login',
+    'core.user',
+    
     
     # Libs
     'widget_tweaks',
@@ -125,9 +127,10 @@ STATICFILES_DIRS = [
 ]
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_REDIRECT_URL = '/evaluaciones/listar/'
-
-
 LOGIN_URL = '/login/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
+AUTH_USER_MODEL = 'user.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
